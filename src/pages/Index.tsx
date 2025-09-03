@@ -4,7 +4,7 @@ import { ContactSection } from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       <ProfileHero />
       <SkillsSection />
       <ContactSection />
