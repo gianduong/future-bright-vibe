@@ -8,35 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Vibrant, future-oriented color palette */
+    --background: 230 25% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 230 22% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 230 22% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 270 100% 70%;
+    --primary-foreground: 230 25% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 190 100% 45%;
+    --secondary-foreground: 230 25% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 230 20% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 310 100% 60%;
+    --accent-foreground: 230 25% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 270 100% 70%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom gradient and glow variables */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 70%) 0%, hsl(310 100% 60%) 50%, hsl(190 100% 45%) 100%);
+    --gradient-secondary: linear-gradient(45deg, hsl(190 100% 45%) 0%, hsl(270 100% 70%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(310 100% 60%) 0%, hsl(270 100% 70%) 100%);
+    
+    --glow-primary: 0 0 20px hsl(270 100% 70% / 0.5);
+    --glow-secondary: 0 0 20px hsl(190 100% 45% / 0.5);
+    --glow-accent: 0 0 20px hsl(310 100% 60% / 0.5);
+    
+    --shadow-elevated: 0 8px 32px hsl(230 25% 8% / 0.8);
+    --shadow-glow: 0 0 40px hsl(270 100% 70% / 0.3);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +117,32 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 20% 80%, hsl(270 100% 70% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, hsl(310 100% 60% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, hsl(190 100% 45% / 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .skill-card {
+    @apply relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-4 
+           transition-all duration-300 hover:bg-card/80 hover:border-primary/30 
+           hover:shadow-glow hover:scale-105 group cursor-pointer;
+  }
+  
+  .skill-icon {
+    @apply w-12 h-12 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6;
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-8;
+  }
+  
+  .floating-element {
+    @apply animate-float;
+  }
+  
+  .glow-element {
+    @apply animate-glow;
   }
 }
