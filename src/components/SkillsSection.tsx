@@ -89,19 +89,18 @@ export const SkillsSection = () => {
         </h2>
         
         <div className="space-y-16">
-          {skillCategories.map((category, categoryIndex) => (
-            <div key={category.title} className="animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 200}ms` }}>
+          {skillCategories.map((category) => (
+            <div key={category.title}>
               <h3 className="text-2xl font-semibold text-center mb-8 text-accent">
                 {category.title}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill) => (
                   <SkillCard
                     key={skill.name}
                     name={skill.name}
                     icon={<SkillIcon tech={skill.name} />}
                     category={skill.category}
-                    delay={categoryIndex * 200 + skillIndex * 100}
                   />
                 ))}
               </div>

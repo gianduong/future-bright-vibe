@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Home, User, Briefcase, GraduationCap, Award } from "lucide-react";
+import { Menu, Home, User, Briefcase, GraduationCap, Award, BookOpen } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
@@ -12,6 +12,7 @@ export const Navigation = () => {
     { to: "/projects", label: "Projects", icon: Briefcase },
     { to: "/education", label: "Education", icon: GraduationCap },
     { to: "/certificates", label: "Certificates", icon: Award },
+    { to: "/knowledge", label: "Knowledge", icon: BookOpen },
   ];
 
   const NavLink = ({ to, label, icon: Icon, className = "" }: { to: string; label: string; icon: any; className?: string }) => {
